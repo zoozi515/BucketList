@@ -12,9 +12,14 @@ class AddItemTableViewController: UIViewController {
     @IBOutlet weak var bucketItem: UITextField!
     
     var addItemDelegate: AddItemDelegate?
-   
+    var itemName: String?
+    var indexPathRow: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if itemName != ""{
+            bucketItem.text = itemName
+        }
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style:.plain, target: self, action: #selector(self.appenedElement))
         
     }
@@ -23,7 +28,12 @@ class AddItemTableViewController: UIViewController {
     @objc func appenedElement(){
         //dismmis the view > add item > reload the table view
         guard let item = bucketItem.text else {return}
-        addItemDelegate?.addItem(item: item)
+        if(itemName != "" && indexPathRow != nil){
+            addItemDelegate?.editItem(item: item, indexPathRow: indexPathRow!)
+        } else{
+            addItemDelegate?.addItem(item: item)
+        }
+           
         
         //used when we presenting modally
         //self.dismiss(animated: true, completion: nil)
@@ -41,4 +51,5 @@ class AddItemTableViewController: UIViewController {
 
 protocol AddItemDelegate: class {
     func addItem(item: String)
+    func editItem(item: String, indexPathRow: Int)
 }

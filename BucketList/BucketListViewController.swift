@@ -39,6 +39,14 @@ class BucketListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //edit
+        // i can put this code inside button func
+        let addItemVC =  storyboard?.instantiateViewController(identifier: "addVC") as! AddItemTableViewController
+        addItemVC.addItemDelegate = self
+        addItemVC.indexPathRow = indexPath.row
+        addItemVC.itemName = array[indexPath.row]
+        //push
+        self.navigationController?.pushViewController(addItemVC, animated: true)
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -51,6 +59,11 @@ class BucketListViewController: UITableViewController {
 }
 
 extension BucketListViewController: AddItemDelegate{
+    func editItem(item: String, indexPathRow: Int) {
+        array[indexPathRow] = item
+        tableView.reloadData()
+    }
+    
     func addItem(item: String) {
         array.append(item)
         tableView.reloadData()
@@ -60,4 +73,3 @@ extension BucketListViewController: AddItemDelegate{
 
 //todo
 //edit by selectrowat
-//delete by swip del
