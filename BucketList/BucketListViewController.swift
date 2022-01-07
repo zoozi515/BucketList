@@ -9,7 +9,7 @@ import UIKit
 
 class BucketListViewController: UITableViewController {
     
-    var array = ["name","age","id"]
+    var array: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,9 @@ class BucketListViewController: UITableViewController {
         // i can put this code inside button func
         let addItemVC =  storyboard?.instantiateViewController(identifier: "addVC") as! AddItemTableViewController
         addItemVC.addItemDelegate = self
-        //push
-        self.navigationController?.pushViewController(addItemVC, animated: true)
+        
         //present modally
-        //self.present(addItemVC, animated: true, completion: nil)
+        self.present(addItemVC, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,9 +43,8 @@ class BucketListViewController: UITableViewController {
         addItemVC.addItemDelegate = self
         addItemVC.indexPathRow = indexPath.row
         addItemVC.itemName = array[indexPath.row]
-        //push
-        self.navigationController?.pushViewController(addItemVC, animated: true)
-        
+        //present modally
+        self.present(addItemVC, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -69,7 +67,3 @@ extension BucketListViewController: AddItemDelegate{
         tableView.reloadData()
     }
 }
-
-
-//todo
-//edit by selectrowat

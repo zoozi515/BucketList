@@ -74,13 +74,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRh-ti-CGy">
+                                <rect key="frame" x="20" y="134" width="374" height="70"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Ah6-xQ-neM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="vuj-2i-fJa" eventType="touchUpInside" id="SHd-bM-4zY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SW0-3S-1G2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W7a-UJ-IUz" firstAttribute="top" secondItem="SW0-3S-1G2" secondAttribute="top" constant="20" id="CTz-TN-5Mn"/>
+                            <constraint firstItem="SW0-3S-1G2" firstAttribute="trailing" secondItem="PRh-ti-CGy" secondAttribute="trailing" constant="20" id="DTz-qQ-93E"/>
                             <constraint firstItem="W7a-UJ-IUz" firstAttribute="leading" secondItem="SW0-3S-1G2" secondAttribute="leading" constant="20" id="IWe-lU-QeT"/>
+                            <constraint firstItem="PRh-ti-CGy" firstAttribute="top" secondItem="W7a-UJ-IUz" secondAttribute="bottom" constant="20" id="JB2-pa-20B"/>
                             <constraint firstItem="SW0-3S-1G2" firstAttribute="trailing" secondItem="W7a-UJ-IUz" secondAttribute="trailing" constant="20" id="KFk-4A-94j"/>
+                            <constraint firstItem="PRh-ti-CGy" firstAttribute="leading" secondItem="SW0-3S-1G2" secondAttribute="leading" constant="20" id="U5z-YG-8h4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -89,13 +105,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tE3-AY-cut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="15"/>
+            <point key="canvasLocation" x="1553.6231884057972" y="14.732142857142856"/>
         </scene>
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
